@@ -17,6 +17,6 @@ public class User {
 	@OneToMany(mappedBy=...)
 	private List<Poll> polls = new ArrayList<>();
 	
-	@OneToMany(mappedBy...)
+	@OneToMany(mappedBy=...)
 	private List<Vote> votes = new ArrayList<>();
 }
