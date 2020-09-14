@@ -14,9 +14,9 @@ public class User {
 	private String username;
 	private String password;
 	
-	@OneToMany(mappedBy=...)
+	@OneToMany(mappedBy="user")
 	private List<Poll> polls;
 	
-	@OneToMany(mappedBy=...)
+	@OneToMany(mappedBy=("user")
 	private List<Vote> votes;
 }
