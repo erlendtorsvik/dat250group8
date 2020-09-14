@@ -12,5 +12,5 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
 	private String username;
-	private int password;
+	private String password;
 }
