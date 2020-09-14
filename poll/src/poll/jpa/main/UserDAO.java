@@ -22,10 +22,8 @@ public class UserDAO {
 		em.merge(user);
 	}
 	
-	void delete(User user) {
-		// This probably won't work unless we use cascade something
-		// Does em.delete even exist?
-		em.delete(user);
+	void remove(User user) {
+		em.remove(user);
 	}
 	
 	
