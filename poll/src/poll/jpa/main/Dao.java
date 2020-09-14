@@ -1,4 +1,4 @@
-package main;
+package poll.jpa.main;
 
 import java.util.List;
 
