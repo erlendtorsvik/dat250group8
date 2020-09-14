@@ -15,5 +15,6 @@ public class Vote {
 	@ManyToOne
 	private Poll poll;
 	
-	@ManyToOne User user;
+	@ManyToOne 
+	private User user;
 }
