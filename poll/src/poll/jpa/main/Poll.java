@@ -1,5 +1,5 @@
 package poll.jpa.main;
-
+import java.util.ArrayList;
 import javax.persistence.*;
 
 import lombok.Data;
@@ -19,5 +19,10 @@ public class Poll {
 	private int green;
 	private int red; 
 	
+	@ManyToOne
+	private User user;
+	
+	@OneToMany(mappedBy=...)
+	private List<Vote> votes = new ArrayList<>();
 
 }
