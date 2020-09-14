@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Entity
 @Data
-
+@Table(name="usernames")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String username;
 	private String password;
