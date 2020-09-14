@@ -5,11 +5,11 @@ import lombok.Data;
 
 @Entity
 @Data
-
+@Table(name="votes")
 public class Vote {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	@ManyToOne
