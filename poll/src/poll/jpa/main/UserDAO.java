@@ -1,30 +1,58 @@
 package poll.jpa.main;
-import javax.persistence.*;
 
-public class UserDAO {
+import java.util.List;
+
+
+import javax.persistence.*;
+import model.User;
+
+public class UserDAO implements Dao<User>{
+	
+	
 	
 	@PersistenceContext
-	EntityManager em;
-	
-	void create(User user) {
-		em.persist(user);
+	private EntityManager em;
+	public UserDAO()
+	{
+		final String PERSISTENCE_UNIT_NAME = "poll";
+		EntityManagerFactory factory;
+		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        em = factory.createEntityManager();
+       
 	}
-	
-	Optional<User> find(int id) {
+	@Override
+	public void create(User user) {
+		em.getTransaction().begin();
+		em.persist(user);
+		em.getTransaction().commit();
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> find(){
+		Query query = em.createQuery("SELECT u FROM User u");
+        return query.getResultList();
+	}
+	@Override
+	public User find(int id) {
 		return em.find(User.class, id);
 	}
-	
-	void save(User user) {
-		em.save(user);
+	@Override
+	public void save(User user) {
+		((UserDAO) em).save(user);
 	}
-	
-	void update(User user) {
+	@Override
+	public void update(User user) {
+		em.getTransaction().begin();
 		em.merge(user);
+		em.getTransaction().commit();
 	}
-	
-	void remove(User user) {
-		em.remove(user);
+	@Override
+	public void delete(int id) {
+		User u = em.find(User.class, id);
+		em.getTransaction().begin();
+		em.remove(u);
+		em.getTransaction().commit();
 	}
+
+
 	
-	
-}
