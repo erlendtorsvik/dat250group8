@@ -13,4 +13,10 @@ public class User {
 	private int id;
 	private String username;
 	private String password;
+	
+	@OneToMany(mappedBy=...)
+	private List<Poll> polls = new ArrayList<>();
+	
+	@OneToMany(mappedBy...)
+	private List<Vote> votes = new ArrayList<>();
 }
