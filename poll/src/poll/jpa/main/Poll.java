@@ -6,11 +6,11 @@ import lombok.Data;
 
 @Entity
 @Data
-
+@Table(name="polls")
 public class Poll {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String title;
 	// private timespamp created_at; 
