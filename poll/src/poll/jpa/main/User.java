@@ -1,5 +1,5 @@
 package poll.jpa.main;
-import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 
 import lombok.Data;
@@ -15,8 +15,8 @@ public class User {
 	private String password;
 	
 	@OneToMany(mappedBy=...)
-	private List<Poll> polls = new ArrayList<>();
+	private List<Poll> polls;
 	
 	@OneToMany(mappedBy=...)
-	private List<Vote> votes = new ArrayList<>();
+	private List<Vote> votes;
 }
