@@ -1,6 +1,18 @@
-package poll.jpa.main;
+package main;
 
-private static final String PERSISTENCE_UNIT_NAME = "poll";
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import model.User;
+
+
+public class Main {
+
+	private static final String PERSISTENCE_UNIT_NAME = "poll";
     private static EntityManagerFactory factory;
 
     public static void main(String[] args) {
@@ -26,3 +38,6 @@ private static final String PERSISTENCE_UNIT_NAME = "poll";
         System.out.println("Size: " + uList.size());
 
         em.close();
+
+    }
+}
