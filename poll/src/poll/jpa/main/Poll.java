@@ -22,7 +22,7 @@ public class Poll {
 	@ManyToOne
 	private User user;
 	
-	@OneToMany(mappedBy=...)
+	@OneToMany(mappedBy="poll")
 	private List<Vote> votes;
 
 }
