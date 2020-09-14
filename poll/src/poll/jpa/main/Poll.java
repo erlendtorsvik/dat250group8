@@ -1,7 +1,8 @@
 package poll.jpa.main;
+import java.sql.Timestamp;
 import java.util.List;
-import javax.persistence.*;
 
+import javax.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -13,8 +14,8 @@ public class Poll {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String title;
-	// private timespamp created_at; 
-	// private timespamp finishes_at;
+	private Timestamp created_at; 
+	private Timestamp finishes_at;
 	private boolean is_private;
 	private int green;
 	private int red; 
