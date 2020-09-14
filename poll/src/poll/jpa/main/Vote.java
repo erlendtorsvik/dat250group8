@@ -1,5 +1,4 @@
 package poll.jpa.main;
-
 import javax.persistence.*;
 
 import lombok.Data;
@@ -12,6 +11,9 @@ public class Vote {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
-	private Poll polls; 
 	
+	@ManyToOne
+	private Poll poll;
+	
+	@ManyToOne User user;
 }
