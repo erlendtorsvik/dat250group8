@@ -1,41 +1,39 @@
 package poll.jpa.main;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import DAO.Dao;
+import DAO.UserDAO;
+import model.User;
 
 
 public class Main {
 
-	private static final String PERSISTENCE_UNIT_NAME = "poll";
-    private static EntityManagerFactory factory;
+	
 
     public static void main(String[] args) {
-        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        EntityManager em = factory.createEntityManager();
+       Dao<User> userDAO = new UserDAO();
+        List<User> users = userDAO.find();
+        users.forEach(System.out::println);
         
-        em.getTransaction().begin();
+       /* User user = new User();
+        User user1 = new User();
+        User user2 = new User();
+        user.setUsername("Cristoffer");
+        user.setPassword("pw1");
+        user1.setUsername("Erlend");
+        user1.setPassword("password123");
+        user2.setUsername("Tor");
+        user2.setPassword("pwpw321");
         
-        User u = new User();
-        u.setUsername("er11");
+        userDAO.create(user2);
+        userDAO.create(user1);
+        userDAO.create(user); */
         
-   
-        em.persist(u);
-         
-        em.getTransaction().commit();
-
-        Query q = em.createQuery("select u from User u");
-        List<User> uList = q.getResultList();
-        for (User user : uList) {
-            System.out.println(u.getUsername());
-          
-        }
-        System.out.println("Size: " + uList.size());
-
-        em.close();
+        
+        
+        
+        
+    }
 
     }
 }
