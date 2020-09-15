@@ -1,4 +1,4 @@
-package DAO;
+package poll.jpa.main;
 
 import java.util.List;
 
